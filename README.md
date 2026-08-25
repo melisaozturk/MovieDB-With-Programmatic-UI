@@ -32,18 +32,6 @@ This project implements the **MVVM (Model-View-ViewModel)** architecture pattern
 - **Dependency Injection**: ViewModels injected into ViewControllers
 - **Singleton Pattern**: UI utilities for loading indicators and alerts
 
-## Project Structure
-
-```
-YemeksepetiMovieDB/
-├── Resources/          # App delegates and configuration
-├── Model/              # Data models (Codable structs)
-├── View/               # ViewControllers and custom cells
-├── ViewModel/          # Business logic and data transformation
-├── Service/            # API client and endpoint definitions
-└── Common/             # Utility classes and helpers
-```
-
 ## Requirements
 
 - iOS 10.0+
@@ -98,14 +86,6 @@ NSLayoutConstraint.activate([
     tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
 ])
 ```
-
-## Testing
-
-The project includes template files for:
-- Unit Tests (`YemeksepetiMovieDBTests`)
-- UI Tests (`YemeksepetiMovieDBUITests`)
-
-To run tests: `⌘+U` in Xcode
 
 ## Acknowledgments
 
