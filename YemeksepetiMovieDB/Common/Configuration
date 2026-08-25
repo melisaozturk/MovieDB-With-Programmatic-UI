@@ -1,0 +1,41 @@
+@@ -0,0 +1,40 @@
+//
+//  Configuration.swift
+//  YemeksepetiMovieDB
+//
+//  Created by melisa öztürk on 24.08.2026.
+//
+
+import Foundation
+
+enum Configuration {
+
+    // MARK: - Keys
+
+    enum Keys {
+        static let apiKey = "TMDB_API_KEY"
+        static let baseURL = "TMDB_BASE_URL"
+        static let language = "TMDB_LANGUAGE"
+    }
+
+    // MARK: - Environment Variables
+
+    private static let environment = ProcessInfo.processInfo.environment
+
+    // MARK: - API Configuration
+
+    static var apiKey: String {
+        guard let apiKey = environment[Keys.apiKey], !apiKey.isEmpty else {
+            fatalError("API Key not found. Please add TMDB_API_KEY to your .env file")
+        }
+        return apiKey
+    }
+
+    static var baseURL: String {
+        return environment[Keys.baseURL] ?? "https://api.themoviedb.org"
+    }
+
+    static var defaultLanguage: String {
+        return environment[Keys.language] ?? "en-US"
+    }
+}

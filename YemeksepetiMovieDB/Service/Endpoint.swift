@@ -17,7 +17,7 @@ enum Endpoint {
 extension Endpoint: BaseEndpoint {
     
     var base: String {
-        return "https://api.themoviedb.org"
+        return Configuration.baseURL
     }
     
     var path: String {
@@ -32,11 +32,11 @@ extension Endpoint: BaseEndpoint {
     var query: [URLQueryItem] {
         switch self {
         case .movie_popular:
-            return [URLQueryItem(name: "api_key", value:"45a4fdf097060d7804046ad3fe9098c3"), URLQueryItem(name: "language", value:"en-US"), URLQueryItem(name: "page", value: "1")]
+            return [URLQueryItem(name: "api_key", value: Configuration.apiKey), URLQueryItem(name: "language", value: Configuration.defaultLanguage), URLQueryItem(name: "page", value: "1")]
         case .movie_detail, .movie_credits:
-            return[URLQueryItem(name: "api_key", value:"45a4fdf097060d7804046ad3fe9098c3"), URLQueryItem(name: "language", value:"en-US")]
+            return[URLQueryItem(name: "api_key", value: Configuration.apiKey), URLQueryItem(name: "language", value: Configuration.defaultLanguage)]
         case .movie_search(let searchKey):
-            return [URLQueryItem(name: "api_key", value:"45a4fdf097060d7804046ad3fe9098c3"), URLQueryItem(name: "language", value:"en-US"), URLQueryItem(name: "query", value: "\(searchKey)"), URLQueryItem(name: "page", value: "1"), URLQueryItem(name: "include_adult", value: "false")]
+            return [URLQueryItem(name: "api_key", value: Configuration.apiKey), URLQueryItem(name: "language", value: Configuration.defaultLanguage), URLQueryItem(name: "query", value: "\(searchKey)"), URLQueryItem(name: "page", value: "1"), URLQueryItem(name: "include_adult", value: "false")]
         }
     }
 }
